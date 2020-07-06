@@ -42,10 +42,10 @@
             <li class="nav-item">
                 <a aria-disabled="true" class="nav-link" href="http://rajkumaar.co.in" tabindex="-1">About</a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" onclick="localStorage.removeItem(" sem-for-atd");localStorage.removeItem("sem-for-grades");alert("Cache
                 cleared");">Clear Cache</a>
-            </li>
+            </li>-->
             <li class="nav-item">
                 <a class="nav-link" onclick="localStorage.clear(); window.location.href='/amritarepo/aums'">Logout</a>
             </li>
@@ -55,8 +55,11 @@
 <div class="container" style="margin-top: 20px">
     <h3 class="text-white" id="title">Choose your semester</h3>
     <ul class="list-group" id="semesters">
-
     </ul>
+    <h6 class="text-white">
+      Your semesters are loaded from cache. If you want to refresh the cache,click 
+      <a style="color: rgba(55, 55, 189, 0.603);"onclick='localStorage.removeItem("sem-for-atd");localStorage.removeItem("sem-for-grades");alert("Cache cleared");'>here</a>
+    </h6>
 </div>
 <script
         crossorigin="anonymous"
