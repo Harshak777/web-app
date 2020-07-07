@@ -97,14 +97,14 @@ function attendance(sem) {
                         + current.CourseName + ' <span style="color: #ff0000;">( ' + current.TotalPercentage + '% )</span><br><span style="color: #108100;">' + 'You attended ' + current.ClassPresent + ' out of ' + current.ClassTotal + '</span></li>');
                 }
                 $("#title").html("Your Attendance");
-                node.style.visibility = 'hidden';
                 localStorage.setItem("token", res.Token);
                 loading.out();
             } catch (e) {
                 alert(e.toString());
-                node.style.visibility = 'hidden';
                 localStorage.setItem("token", null);
                 window.location.href = 'index.html';
+            } finally {
+                node.style.visibility = 'hidden';
             }
         },
         error: (err) => {

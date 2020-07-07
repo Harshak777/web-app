@@ -55,6 +55,14 @@ $(document).ready(function () {
             alert(e.message);
         }
     }
+
+    var node;
+    if(localStorage.getItem("sem-for-grades"))
+    {
+        node = document.getElementById('clear');
+        node.style.visibility = 'visible';
+    }
+
 });
 
 function showGrades(sem) {
@@ -70,6 +78,8 @@ function showGrades(sem) {
     });
     let url = "https://amritavidya.amrita.edu:8444/DataServices/rest/andRes?rollno=" + localStorage.getItem("username") + "&sem=" + sem;
     let container = $('#semesters');
+    var node;
+    node = document.getElementById('clear');
     $.ajax({
         method: 'GET',
         url: url,
@@ -90,6 +100,8 @@ function showGrades(sem) {
                 loading.out();
             } catch (e) {
                 alert(e.message);
+            } finally {
+                node.style.visibility = 'hidden';
             }
         },
         error: (err) => {
