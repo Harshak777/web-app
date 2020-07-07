@@ -55,6 +55,15 @@ $(document).ready(function () {
             alert(e.message);
         }
     }
+
+    var node;
+    if(localStorage.getItem("sem-for-atd"))
+    {
+        node = document.getElementById('clear');
+        node.style.visibility = 'visible';
+    }
+    
+
 });
 
 function attendance(sem) {
@@ -70,6 +79,8 @@ function attendance(sem) {
     });
     let url = "https://amritavidya.amrita.edu:8444/DataServices/rest/attRes?rollno=" + localStorage.getItem("username") + "&sem=" + sem;
     let container = $('#semesters');
+    var node;
+    node = document.getElementById('clear');
     $.ajax({
         method: 'GET',
         url: url,
@@ -86,10 +97,12 @@ function attendance(sem) {
                         + current.CourseName + ' <span style="color: #ff0000;">( ' + current.TotalPercentage + '% )</span><br><span style="color: #108100;">' + 'You attended ' + current.ClassPresent + ' out of ' + current.ClassTotal + '</span></li>');
                 }
                 $("#title").html("Your Attendance");
+                node.style.visibility = 'hidden';
                 localStorage.setItem("token", res.Token);
                 loading.out();
             } catch (e) {
                 alert(e.toString());
+                node.style.visibility = 'hidden';
                 localStorage.setItem("token", null);
                 window.location.href = 'index.html';
             }
@@ -100,3 +113,5 @@ function attendance(sem) {
         }
     });
 }
+
+
