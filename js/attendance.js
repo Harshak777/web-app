@@ -56,10 +56,9 @@ $(document).ready(function () {
         }
     }
 
-    var node;
     if(localStorage.getItem("sem-for-atd"))
     {
-        node = document.getElementById('clear');
+        const node = document.getElementById('clear');
         node.style.visibility = 'visible';
     }
     
@@ -113,5 +112,4 @@ function attendance(sem) {
         }
     });
 }
-
 
