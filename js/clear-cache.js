@@ -3,5 +3,5 @@ function clearCache(name){
 	const node = document.getElementById("clear");
 	node.style.visibility = "hidden";
 	alert("Cache has been cleared");
-	window.location.reload(false);
+	window.location.reload();
 }
