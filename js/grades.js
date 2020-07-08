@@ -56,10 +56,9 @@ $(document).ready(function () {
         }
     }
 
-    var node;
     if(localStorage.getItem("sem-for-grades"))
     {
-        node = document.getElementById('clear');
+        const node = document.getElementById('clear');
         node.style.visibility = 'visible';
     }
 
